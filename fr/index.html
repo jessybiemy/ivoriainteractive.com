@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ivoria Interactive · Studio de jeux vidéo indépendant</title>
-<meta name="description" content="Ivoria Interactive est un studio de jeux vidéo indépendant français. Des mondes tout doux, des systèmes très sérieux. Premier jeu : Xsections.">
+<title>Ivoria Interactive™ · Studio de jeux vidéo indépendant</title>
+<meta name="description" content="Ivoria Interactive™ est un studio de jeux vidéo indépendant français. Des mondes tout doux, des systèmes très sérieux. Premier jeu : Xsections™.">
 <link rel="canonical" href="https://ivoriainteractive.com/fr/">
 <link rel="alternate" hreflang="en" href="https://ivoriainteractive.com/">
 <link rel="alternate" hreflang="fr" href="https://ivoriainteractive.com/fr/">
@@ -12,9 +12,9 @@
 <meta name="theme-color" content="#f1ede4">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Ivoria Interactive">
-<meta property="og:title" content="Ivoria Interactive · Studio de jeux vidéo indépendant">
-<meta property="og:description" content="Ivoria Interactive est un studio de jeux vidéo indépendant français. Des mondes tout doux, des systèmes très sérieux. Premier jeu : Xsections.">
+<meta property="og:site_name" content="Ivoria Interactive™">
+<meta property="og:title" content="Ivoria Interactive™ · Studio de jeux vidéo indépendant">
+<meta property="og:description" content="Ivoria Interactive™ est un studio de jeux vidéo indépendant français. Des mondes tout doux, des systèmes très sérieux. Premier jeu : Xsections™.">
 <meta property="og:url" content="https://ivoriainteractive.com/fr/">
 <meta property="og:image" content="https://ivoriainteractive.com/img/og-fr.jpg">
 <meta property="og:image:width" content="1200">
@@ -31,6 +31,8 @@
 <style>
 @font-face { font-family: 'Lexend'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/fonts/lexend-latin-normal.woff2) format('woff2'); }
 @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/figtree-latin-normal.woff2) format('woff2'); }
+/* ™ des marques déposées dans les titres et le logo : petit, calé en haut des capitales */
+.tm { font-size: max(.3em, 12px); line-height: 1; vertical-align: top; position: relative; top: .32em; margin-left: .04em; letter-spacing: 0; font-weight: 500; }
 
 /* Layout: the name set very large over two lines, the studio's mark beside it at the same height,
    cut in ink from the ivory field (Ivoria: ivory). Below, the studio's line on the left and its
@@ -70,7 +72,7 @@ a { color: inherit; }
 
 .head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: clamp(20px, 4vw, 64px); padding-top: clamp(8px, 4vh, 56px); }
 h1 { margin: 0; font: 500 var(--t-display)/.9 var(--f-head); letter-spacing: -.045em; }
-h1 span { display: block; }
+h1 > span { display: block; }
 .mark { margin: 0; height: calc(var(--t-display) * 1.8); }
 .mark img { display: block; height: 100%; width: auto; }
 
@@ -113,8 +115,8 @@ h1 span { display: block; }
   .game .btn { grid-column: 1 / -1; width: 100%; justify-content: center; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .bar, h1 span, .mark, .statement, .about, .side, .foot { animation: rise .8s var(--ease) both; }
-  h1 span + span { animation-delay: .07s; } .mark { animation-delay: .12s; } .statement { animation-delay: .2s; }
+  .bar, h1 > span, .mark, .statement, .about, .side, .foot { animation: rise .8s var(--ease) both; }
+  h1 > span + span { animation-delay: .07s; } .mark { animation-delay: .12s; } .statement { animation-delay: .2s; }
   .about { animation-delay: .26s; } .side { animation-delay: .32s; } .foot { animation-delay: .4s; }
   @keyframes rise { from { opacity: 0; transform: translateY(22px); } }
 }
@@ -128,18 +130,18 @@ h1 span { display: block; }
     <a class="lang" href="/" hreflang="en" lang="en">English</a>
   </header>
   <div class="head">
-    <h1><span>Ivoria</span> <span>Interactive</span></h1>
+    <h1><span>Ivoria</span> <span>Interactive<span class="tm">™</span></span></h1>
     <figure class="mark"><img src="/img/ivoria-mark-ink-600.webp" srcset="/img/ivoria-mark-ink-600.webp 551w, /img/ivoria-mark-ink-1200.webp 1103w" sizes="(min-width: 560px) 18vw, 110px" width="1103" height="1200" alt="Le symbole d’Ivoria Interactive"></figure>
   </div>
   <main class="below">
     <div>
       <p class="statement">Des mondes tout doux, des systèmes très sérieux.</p>
-      <p class="about">Ivoria Interactive fait des jeux qui ont l’air cosy au premier regard et qui, sous le capot, prennent leurs règles au sérieux. Un studio indépendant français, fondé et dirigé par Jessy Biemy.</p>
+      <p class="about">Ivoria Interactive™ fait des jeux qui ont l’air cosy au premier regard et qui, sous le capot, prennent leurs règles au sérieux. Un studio indépendant français, fondé et dirigé par Jessy Biemy.</p>
     </div>
     <div class="side">
       <section class="game" aria-labelledby="game-title">
         <img src="/img/xsections-x-day-128.png" alt="Le logo d’Xsections" width="128" height="128">
-        <h2 id="game-title">Xsections</h2>
+        <h2 id="game-title">Xsections<span class="tm">™</span></h2>
         <p>Notre premier jeu. L’ingénierie routière pure, dans un monde tout mignon.</p>
         <p class="soon"><span class="lamp" aria-hidden="true"></span>Mise en service imminente.</p>
         <a class="btn" href="https://xsections.co/fr/">Découvrir xsections.co</a>
@@ -148,7 +150,7 @@ h1 span { display: block; }
     </div>
   </main>
   <footer class="foot">
-    <p>© 2026 Ivoria Interactive</p>
+    <p>© 2026 Ivoria Interactive™</p>
     <a href="/legal.html">Mentions légales</a>
   </footer>
 </div>

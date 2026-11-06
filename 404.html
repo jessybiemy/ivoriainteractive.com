@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Page not found · Ivoria Interactive</title>
+<title>Page not found · Ivoria Interactive™</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="Ivoria Interactive is an independent game studio from France. Soft worlds, serious systems. First game: Xsections.">
+<meta name="description" content="Ivoria Interactive™ is an independent game studio from France. Soft worlds, serious systems. First game: Xsections™.">
 <meta name="theme-color" content="#f1ede4">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Ivoria Interactive">
-<meta property="og:title" content="Page not found · Ivoria Interactive">
-<meta property="og:description" content="Ivoria Interactive is an independent game studio from France. Soft worlds, serious systems. First game: Xsections.">
+<meta property="og:site_name" content="Ivoria Interactive™">
+<meta property="og:title" content="Page not found · Ivoria Interactive™">
+<meta property="og:description" content="Ivoria Interactive™ is an independent game studio from France. Soft worlds, serious systems. First game: Xsections™.">
 <meta property="og:url" content="https://ivoriainteractive.com/">
 <meta property="og:image" content="https://ivoriainteractive.com/img/og-en.jpg">
 <meta property="og:image:width" content="1200">
@@ -28,6 +28,8 @@
 <style>
 @font-face { font-family: 'Lexend'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/fonts/lexend-latin-normal.woff2) format('woff2'); }
 @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/figtree-latin-normal.woff2) format('woff2'); }
+/* ™ des marques déposées dans les titres et le logo : petit, calé en haut des capitales */
+.tm { font-size: max(.3em, 12px); line-height: 1; vertical-align: top; position: relative; top: .32em; margin-left: .04em; letter-spacing: 0; font-weight: 500; }
 
 /* Layout: the name set very large over two lines, the studio's mark beside it at the same height,
    cut in ink from the ivory field (Ivoria: ivory). Below, the studio's line on the left and its
@@ -67,7 +69,7 @@ a { color: inherit; }
 
 .head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: clamp(20px, 4vw, 64px); padding-top: clamp(8px, 4vh, 56px); }
 h1 { margin: 0; font: 500 var(--t-display)/.9 var(--f-head); letter-spacing: -.045em; }
-h1 span { display: block; }
+h1 > span { display: block; }
 .mark { margin: 0; height: calc(var(--t-display) * 1.8); }
 .mark img { display: block; height: 100%; width: auto; }
 
@@ -110,8 +112,8 @@ h1 span { display: block; }
   .game .btn { grid-column: 1 / -1; width: 100%; justify-content: center; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .bar, h1 span, .mark, .statement, .about, .side, .foot { animation: rise .8s var(--ease) both; }
-  h1 span + span { animation-delay: .07s; } .mark { animation-delay: .12s; } .statement { animation-delay: .2s; }
+  .bar, h1 > span, .mark, .statement, .about, .side, .foot { animation: rise .8s var(--ease) both; }
+  h1 > span + span { animation-delay: .07s; } .mark { animation-delay: .12s; } .statement { animation-delay: .2s; }
   .about { animation-delay: .26s; } .side { animation-delay: .32s; } .foot { animation-delay: .4s; }
   @keyframes rise { from { opacity: 0; transform: translateY(22px); } }
 }
@@ -133,7 +135,7 @@ h1 span { display: block; }
     <p>This page does not exist. <a href="/">Back to the studio</a></p>
     <p class="nf-fr" lang="fr"><strong>Page introuvable.</strong> Cette page n&#x27;existe pas. <a href="/fr/">Retour au studio</a></p>
   </main>
-  <footer class="foot"><p>© 2026 Ivoria Interactive</p></footer>
+  <footer class="foot"><p>© 2026 Ivoria Interactive™</p></footer>
 </div>
 </body>
 </html>
