@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mentions légales · ivoriainteractive.com</title>
+<meta name="description" content="Mentions légales du site ivoriainteractive.com.">
+<link rel="canonical" href="https://ivoriainteractive.com/legal.html">
+<meta name="theme-color" content="#f1ede4">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ivoria Interactive">
+<meta property="og:title" content="Mentions légales · ivoriainteractive.com">
+<meta property="og:description" content="Mentions légales du site ivoriainteractive.com.">
+<meta property="og:url" content="https://ivoriainteractive.com/legal.html">
+<meta property="og:image" content="https://ivoriainteractive.com/img/og-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Le symbole d’Ivoria Interactive sur fond ivoire, avec les mots : Des mondes tout doux, des systèmes très sérieux.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/lexend-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: 'Lexend'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(/fonts/lexend-latin-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/figtree-latin-normal.woff2) format('woff2'); }
+
+/* Layout: the name set very large over two lines, the studio's mark beside it at the same height,
+   cut in ink from the ivory field (Ivoria: ivory). Below, the studio's line on the left and its
+   first game on the right. Light only, flat, square corners like the mark's triangles. */
+:root {
+  color-scheme: light;
+  --ground: #f1ede4;     /* ivory */
+  --ground-2: #e6e0d2;   /* one tone step: the game block */
+  --ink: #1e2029;        /* the ink of the official mark */
+  --ink-2: #4a4d5a;
+  --signal: #e09a10;     /* the Xsections signal lamp, the one spot of colour */
+  --signal-off: #d8cdb6;
+  --f-head: 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --t-display: clamp(52px, 10.4vw, 168px);
+  --t-statement: clamp(26px, 2.4vw, 36px);
+  --t-body: 18px;
+  --t-small: 15px;
+  --gut: clamp(16px, 3.4vw, 48px);
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+* { box-sizing: border-box; }
+html { background: var(--ground); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 400 var(--t-body)/1.5 var(--f-body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+.page {
+  min-height: 100svh; display: grid; grid-template-rows: auto auto 1fr auto;
+  padding-left: max(var(--gut), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gut), env(safe-area-inset-right, 0px));
+  max-width: 1600px; margin-inline: auto;
+}
+.bar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding-block: 22px; }
+.bar .home { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font: 600 var(--t-small)/1 var(--f-body); }
+.bar .home img { width: 26px; height: auto; }
+.lang { font: 500 var(--t-body)/1 var(--f-body); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; padding: 10px 2px; }
+
+.head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: clamp(20px, 4vw, 64px); padding-top: clamp(8px, 4vh, 56px); }
+h1 { margin: 0; font: 500 var(--t-display)/.9 var(--f-head); letter-spacing: -.045em; }
+h1 span { display: block; }
+.mark { margin: 0; height: calc(var(--t-display) * 1.8); }
+.mark img { display: block; height: 100%; width: auto; }
+
+.below {
+  display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: start;
+  gap: 40px clamp(24px, 5vw, 96px); padding-block: clamp(40px, 7vh, 88px) 32px;
+}
+.statement { margin: 0; font: 500 var(--t-statement)/1.18 var(--f-head); letter-spacing: -.02em; max-width: 20ch; text-wrap: balance; }
+.about { margin: 20px 0 0; max-width: 46ch; }
+.side { display: grid; gap: 28px; min-width: 0; }
+.game { background: var(--ground-2); padding: 24px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 18px; align-items: start; }
+.game img { grid-row: span 3; width: 56px; height: 56px; }
+.game h2 { margin: 0; font: 500 26px/1.1 var(--f-head); letter-spacing: -.03em; }
+.game p { margin: 0; text-wrap: pretty; }
+.game .soon { display: flex; align-items: center; gap: 10px; color: var(--ink-2); font-size: var(--t-small); margin-top: 6px; }
+.lamp { width: 12px; height: 12px; border-radius: 50%; background: var(--signal); flex: none; animation: blink 1s steps(1, end) infinite; }
+@keyframes blink { 50% { background: var(--signal-off); } }
+.game .btn { grid-column: 2; justify-self: start; margin-top: 16px; }
+.btn {
+  display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; background: var(--ink); color: var(--ground);
+  text-decoration: none; font: 650 17px/1 var(--f-body); transition: background-color .2s ease, transform .18s var(--ease);
+}
+.btn:hover { background: #343747; }
+.btn:active { transform: scale(.97); }
+.contact { margin: 0; color: var(--ink-2); font-size: var(--t-small); }
+.contact a { color: var(--ink); font-size: var(--t-body); font-weight: 600; text-underline-offset: 4px; }
+
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 24px 28px; color: var(--ink-2); font-size: var(--t-small); }
+.foot p { margin: 0; }
+.foot a { color: var(--ink-2); text-underline-offset: 4px; }
+
+@media (max-width: 899px) {
+  .below { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 559px) {
+  .head { grid-template-columns: minmax(0, 1fr); }
+  .mark { order: -1; height: 120px; margin-bottom: 12px; }
+  .game { padding: 20px; gap: 4px 14px; }
+  .game img { width: 44px; height: 44px; }
+  .game .btn { grid-column: 1 / -1; width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bar, h1 span, .mark, .statement, .about, .side, .foot { animation: rise .8s var(--ease) both; }
+  h1 span + span { animation-delay: .07s; } .mark { animation-delay: .12s; } .statement { animation-delay: .2s; }
+  .about { animation-delay: .26s; } .side { animation-delay: .32s; } .foot { animation-delay: .4s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(22px); } }
+}
+@media (prefers-reduced-motion: reduce) { .lamp { animation: none; } }
+
+.doc main { max-width: 68ch; padding-block: 24px 64px; }
+.doc h1 { font: 500 clamp(36px, 5vw, 56px)/1 var(--f-head); letter-spacing: -.03em; margin: 28px 0 8px; max-width: none; }
+.doc h2 { font: 600 22px/1.2 var(--f-head); margin: 36px 0 8px; }
+.doc p { margin: 0 0 12px; }
+.doc .en { color: var(--ink-2); font-size: var(--t-small); }
+.todo { color: #b5631a; background: #f0a05233; padding: 0 4px; font-weight: 600; }
+.doc .bar { justify-content: flex-start; }
+
+</style>
+</head>
+<body>
+<div class="page doc">
+  <header class="bar">
+    <a class="lang" href="/fr/">← ivoriainteractive.com</a>
+  </header>
+  <main>
+    <p class="en" lang="en">Legal notice of ivoriainteractive.com, required by French law. In short: the site is published by Jessy Biemy (sole trader, brand Ivoria Interactive) and hosted by GitHub Pages; it sets no cookies and measures nothing.</p>
+    <h1>Mentions légales</h1>
+    <h2>Éditeur du site</h2>
+    <p>Jessy Biemy, entrepreneur individuel (EI), qui publie sous la marque Ivoria Interactive.<br>
+    E-mail : <a href="mailto:jessy@jessybiemy.com">jessy@jessybiemy.com</a><br>
+    Directeur de la publication : Jessy Biemy</p>
+    <h2>Hébergement</h2>
+    <p>GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Téléphone : +1 877 448 4820.</p>
+    <h2>Données personnelles</h2>
+    <p>Ce site ne dépose aucun cookie, ne mesure pas l’audience et ne contient aucun formulaire. Les polices et les images sont servies par le site lui-même, sans appel à un service tiers.</p>
+    
+    <p>Comme tout hébergeur, GitHub peut garder l’adresse IP des visiteurs dans ses journaux techniques, pour la sécurité du service : voir la <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">déclaration de confidentialité de GitHub</a>.</p>
+    <h2>Propriété intellectuelle</h2>
+    <p>Les textes, les logos et les noms Xsections et Ivoria Interactive appartiennent à Jessy Biemy. Toute reproduction sans accord écrit est interdite. Polices Lexend et Figtree sous licence SIL Open Font License 1.1 (<a href="/fonts/LICENSE.txt">texte de la licence</a>).</p>
+  </main>
+  <footer class="foot"><p>© 2026 Ivoria Interactive</p></footer>
+</div>
+</body>
+</html>
