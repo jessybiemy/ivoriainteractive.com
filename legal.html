@@ -31,93 +31,242 @@
 /* ™ des marques déposées dans les titres et le logo : petit, calé en haut des capitales */
 .tm { font-size: max(.3em, 12px); line-height: 1; vertical-align: top; position: relative; top: .32em; margin-left: .04em; letter-spacing: 0; font-weight: 500; }
 
-/* Layout: the name set very large over two lines, the studio's mark beside it at the same height,
-   cut in ink from the ivory field (Ivoria: ivory). Below, the studio's line on the left and its
-   first game on the right. Light only, flat, square corners like the mark's triangles. */
+/* Ivory and ink, the studio's own look (Jessy's brand wins over the skill's dealt palette and
+   fonts). One night band for the game, in the game's own colours. Square corners, like the
+   triangles of the mark. Flat grounds, one 1px hairline under the nav, no shadows. */
 :root {
   color-scheme: light;
   --ground: #f1ede4;     /* ivory */
-  --ground-2: #e6e0d2;   /* one tone step: the game block */
+  --ground-2: #e6e0d2;   /* one tone step: panels */
+  --line: #d3ccbb;       /* hairlines */
   --ink: #1e2029;        /* the ink of the official mark */
   --ink-2: #4a4d5a;
   --signal: #e09a10;     /* the Xsections signal lamp, the one spot of colour */
   --signal-off: #d8cdb6;
+  --night: #080d22; --night-2: #121a3b; --on-night: #eef1f8; --on-night-2: #b7bfd8;
+  --signal-n: #ffb21e; --signal-n-hi: #ffc552; --signal-n-off: #3a3324;
   --f-head: 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --f-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --t-display: clamp(52px, 10.4vw, 168px);
+  --t-h1: clamp(38px, 5vw, 72px);
+  --t-h2: clamp(30px, 3.4vw, 48px);
+  --t-h3: clamp(22px, 2vw, 28px);
   --t-statement: clamp(26px, 2.4vw, 36px);
-  --t-body: 18px;
-  --t-small: 15px;
+  --t-lead: clamp(18px, 1.45vw, 21px);
+  --t-body: 16px; --lh: 26px; --t-small: 14px;
   --gut: clamp(16px, 3.4vw, 48px);
+  --nav-h: 64px;
   --ease: cubic-bezier(.16, 1, .3, 1);
+  --ease-ui: cubic-bezier(.2, .8, .2, 1);
 }
 * { box-sizing: border-box; }
-html { background: var(--ground); -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--ground); color: var(--ink); font: 400 var(--t-body)/1.5 var(--f-body); -webkit-font-smoothing: antialiased; }
+html { background: var(--ground); -webkit-text-size-adjust: 100%; scroll-padding-top: 0; }
+body { margin: 0; padding-top: 0; background: var(--ground); color: var(--ink); font: 400 var(--t-body)/var(--lh) var(--f-body); -webkit-font-smoothing: antialiased; }
 a { color: inherit; }
+img { display: block; max-width: 100%; }
 :focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
-.page {
-  min-height: 100svh; display: grid; grid-template-rows: auto auto 1fr auto;
+.night :focus-visible { outline-color: var(--on-night); }
+.tm { font-size: max(.3em, 13px); }
+.wrap {
+  width: 100%; max-width: calc(1280px + 2 * var(--gut)); margin-inline: auto;
   padding-left: max(var(--gut), env(safe-area-inset-left, 0px));
   padding-right: max(var(--gut), env(safe-area-inset-right, 0px));
-  max-width: 1600px; margin-inline: auto;
 }
-.bar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding-block: 22px; }
-.bar .home { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font: 600 var(--t-small)/1 var(--f-body); }
-.bar .home img { width: 26px; height: auto; }
-.lang { font: 500 var(--t-body)/1 var(--f-body); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; padding: 10px 2px; }
 
-.head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: clamp(20px, 4vw, 64px); padding-top: clamp(8px, 4vh, 56px); }
-h1 { margin: 0; font: 500 var(--t-display)/.9 var(--f-head); letter-spacing: -.045em; }
-h1 > span { display: block; }
-.mark { margin: 0; height: calc(var(--t-display) * 1.8); }
-.mark img { display: block; height: 100%; width: auto; }
+/* nav: fixed, opaque, one hairline, four nouns and the one button */
+.nav { position: fixed; inset: 0 0 auto; z-index: 20; height: var(--nav-h); background: var(--ground); border-bottom: 1px solid var(--line); }
+.nav .wrap { height: 100%; display: flex; align-items: center; gap: clamp(14px, 2.2vw, 32px); }
+.brand { display: inline-flex; align-items: center; gap: 10px; margin-right: auto; text-decoration: none; font: 500 18px/1 var(--f-head); letter-spacing: -.02em; white-space: nowrap; }
+.brand img { width: auto; height: 28px; }
+.nav ul { display: flex; gap: clamp(16px, 2vw, 28px); margin: 0; padding: 0; list-style: none; }
+.nav ul a, .nav .lang { font: 500 15px/1 var(--f-body); }
+.menu { display: none; }
 
-.below {
-  display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: start;
-  gap: 40px clamp(24px, 5vw, 96px); padding-block: clamp(40px, 7vh, 88px) 32px;
+/* links: the underline draws on hover (140 ms in, 200 ms out) */
+.ul, .nav ul a, .lang, .foot-grid a, .reach a {
+  text-decoration: none; padding-block: 6px;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
+  transition: background-size 200ms ease;
 }
-.statement { margin: 0; font: 500 var(--t-statement)/1.18 var(--f-head); letter-spacing: -.02em; max-width: 20ch; text-wrap: balance; }
-.about { margin: 20px 0 0; max-width: 46ch; }
-.side { display: grid; gap: 28px; min-width: 0; }
-.game { background: var(--ground-2); padding: 24px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 18px; align-items: start; }
-.game img { grid-row: span 3; width: 56px; height: 56px; }
-.game h2 { margin: 0; font: 500 26px/1.1 var(--f-head); letter-spacing: -.03em; }
-.game p { margin: 0; text-wrap: pretty; }
-.game .soon { display: flex; align-items: center; gap: 10px; color: var(--ink-2); font-size: var(--t-small); margin-top: 6px; }
-.lamp { width: 12px; height: 12px; border-radius: 50%; background: var(--signal); flex: none; animation: blink 1s steps(1, end) infinite; }
-@keyframes blink { 50% { background: var(--signal-off); } }
-.game .btn { grid-column: 2; justify-self: start; margin-top: 16px; }
+.nav ul a[aria-current] { background-size: 100% 2px; }
+.tlink { text-decoration: none; padding-block: 6px; font-weight: 500;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; transition: background-size 200ms ease; }
+
+/* buttons: one height everywhere, a 1px step up on hover, a press just below rest on click */
 .btn {
-  display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; background: var(--ink); color: var(--ground);
-  text-decoration: none; font: 650 17px/1 var(--f-body); transition: background-color .2s ease, transform .18s var(--ease);
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border: 0; border-radius: 0;
+  background: var(--ink); color: var(--ground); text-decoration: none; font: 500 16px/1 var(--f-body); cursor: pointer;
+  transition: transform 200ms var(--ease-ui), background-color 200ms ease, color 200ms ease;
 }
-.btn:hover { background: #343747; }
-.btn:active { transform: scale(.97); }
-.contact { margin: 0; color: var(--ink-2); font-size: var(--t-small); }
-.contact a { color: var(--ink); font-size: var(--t-body); font-weight: 600; text-underline-offset: 4px; }
+.btn.small { min-height: 48px; padding: 0 20px; font-size: 16px; }
+.night .btn { background: var(--signal-n); color: var(--night); }
+@media (hover: hover) and (pointer: fine) {
+  .ul:hover, .nav ul a:hover, .lang:hover, .foot-grid a:hover, .reach a:hover { background-size: 100% 2px; transition-duration: 140ms; }
+  .tlink:hover { background-size: 100% 2px; transition-duration: 140ms; }
+  .btn:hover, .copy:hover { transform: translateY(-1px); transition-duration: 140ms; }
+  .btn:hover { background-color: #343747; }
+  .night .btn:hover { background-color: var(--signal-n-hi); }
+  .copy:hover { background: var(--ink); color: var(--ground); }
+}
+.btn:active, .copy:active { transform: translateY(1px) scale(.985); transition-duration: 90ms; }
 
-.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 24px 28px; color: var(--ink-2); font-size: var(--t-small); }
-.foot p { margin: 0; }
-.foot a { color: var(--ink-2); text-underline-offset: 4px; }
+/* sections: one or two screens each at 1440 x 900, heading first, top-aligned */
+/* each section starts on a screen line; the bar sits inside its top padding */
+.screen { min-height: calc(var(--h, 1) * 100svh); padding-block: calc(var(--nav-h) + clamp(56px, 10vh, 104px)) clamp(56px, 10vh, 104px); }
+h2 { margin: 0; font: 500 var(--t-h2)/1.06 var(--f-head); letter-spacing: -.03em; text-wrap: balance; }
+h3 { margin: 0; font: 500 var(--t-h3)/1.2 var(--f-head); letter-spacing: -.02em; }
+.split { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px clamp(24px, 5vw, 96px); align-items: start; }
+.prose p { margin: 18px 0 0; max-width: 62ch; font-size: clamp(16px, 1.25vw, 18px); line-height: 1.62; }
+.lead, .prose p.lead { margin: 20px 0 0; font-size: var(--t-lead); line-height: 1.5; max-width: 46ch; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 32px; }
 
+/* home hero: the name set very large, the mark beside it at the same height */
+.hero { min-height: 100svh; display: grid; grid-template-rows: auto auto 1fr; padding-top: calc(var(--nav-h) + clamp(24px, 5vh, 56px)); padding-bottom: clamp(40px, 7vh, 80px); }
+.kicker { margin: 0 0 clamp(16px, 3vh, 32px); color: var(--ink-2); font: 500 15px/1.4 var(--f-body); }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: clamp(20px, 4vw, 64px); }
+.hero h1 { margin: 0; font: 500 var(--t-display)/.9 var(--f-head); letter-spacing: -.045em; }
+.hero h1 > span { display: block; }
+.mark { margin: 0; height: calc(var(--t-display) * 1.8); }
+.mark img { height: 100%; width: auto; }
+.below { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: end; align-self: end; gap: 32px clamp(24px, 5vw, 96px); padding-top: clamp(32px, 6vh, 72px); }
+.statement { margin: 0; font: 500 var(--t-statement)/1.18 var(--f-head); letter-spacing: -.02em; max-width: 20ch; text-wrap: balance; }
+.about { margin: 18px 0 0; max-width: 46ch; font-size: var(--t-lead); line-height: 1.5; }
+.below .actions { margin-top: 0; }
+
+/* the game, on its own night band */
+.night { background: var(--night); color: var(--on-night); }
+.genre { margin: 14px 0 0; font: 500 var(--t-h3)/1.25 var(--f-head); letter-spacing: -.02em; max-width: 26ch; }
+.game .prose p { color: var(--on-night); font-size: var(--t-lead); line-height: 1.5; max-width: 40ch; }
+.game .prose p.soon { font-size: var(--t-body); }
+.soon { display: flex; align-items: center; gap: 12px; margin: 28px 0 0; color: var(--on-night-2); }
+.lamp { width: 14px; height: 14px; border-radius: 50%; background: var(--signal); flex: none; animation: blink 1s steps(1, end) infinite; }
+.night .lamp { background: var(--signal-n); animation-name: blink-n; }
+@keyframes blink { 50% { background: var(--signal-off); } }
+@keyframes blink-n { 50% { background: var(--signal-n-off); } }
+.game figure { margin: 0; justify-self: end; width: 100%; max-width: min(100%, 560px, 62svh); }
+.game figure img { width: 100%; height: auto; }
+
+/* square brand tiles beside a text (the mark, never redrawn) */
+.tile { margin: 0; justify-self: end; width: 100%; max-width: min(100%, 480px, 60svh); aspect-ratio: 1; position: relative; background: var(--ground-2); overflow: hidden; }
+.tile.ink { background: var(--ink); }
+.tile img { position: absolute; inset: 0; margin: auto; height: 62%; width: auto; }
+
+/* the name: Ivoria herself, then her head, then the mark */
+.photo { margin: 0; justify-self: end; width: 100%; max-width: min(100%, 440px, calc((100svh - var(--nav-h) - 2 * clamp(56px, 10vh, 104px)) * .8)); aspect-ratio: 4 / 5; overflow: hidden; background: var(--ground-2); }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.evo { display: flex; align-items: center; gap: clamp(12px, 1.6vw, 20px); margin: 32px 0 0; padding: 0; list-style: none; }
+.evo li { position: relative; width: clamp(112px, 11vw, 168px); aspect-ratio: 1; background: var(--ink); flex: none; }
+.evo li img { position: absolute; inset: 0; margin: auto; height: 62%; width: auto; }
+.evo .to { width: auto; aspect-ratio: auto; background: none; color: var(--ink-2); font: 500 clamp(22px, 2vw, 28px)/1 var(--f-head); }
+.solo .prose { max-width: 62ch; }
+.by { color: var(--ink-2); font-weight: 500; }
+/* after Xsections: a quiet panel in the story's right column */
+.next-col { display: grid; gap: 28px; align-content: start; }
+.next-box { background: var(--ground-2); padding: clamp(24px, 2.6vw, 36px); }
+.next-box .lead { margin-top: 14px; max-width: 40ch; }
+
+/* the 2015 photo, above « After Xsections » in the story's right column */
+.moment { margin: 0; width: 100%; aspect-ratio: 4 / 3; max-height: 40svh; overflow: hidden; background: var(--ground-2); }
+.moment img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }   /* a short screen trims the legs, never the heads */
+.next-col:has(.moment) { gap: 24px; }
+.moment + .next-box { background: none; padding: 20px 0 0; border-top: 1px solid var(--line); }
+.moment + .next-box .lead { margin-top: 10px; font-size: clamp(16px, 1.25vw, 18px); line-height: 1.62; max-width: none; }
+.role { margin: 10px 0 0; color: var(--ink-2); font-weight: 500; }
+
+/* studio page */
+.shero .kicker { display: flex; align-items: center; gap: 10px; }
+.shero .kicker img { height: 24px; width: auto; }
+.shero h1 { margin: 0; font: 500 var(--t-h1)/1.02 var(--f-head); letter-spacing: -.035em; max-width: 16ch; text-wrap: balance; }
+.facts { margin: 0; padding: 28px; background: var(--ground-2); display: grid; gap: 18px; }
+.facts div { display: grid; gap: 2px; }
+.facts dt { color: var(--ink-2); font-size: var(--t-small); line-height: 1.4; }
+.facts dd { margin: 0; font: 500 18px/1.4 var(--f-head); letter-spacing: -.01em; }
+.facts dd a { text-underline-offset: 4px; }
+.soft { background: var(--ground-2); }
+
+/* press kit */
+.press .lead { max-width: 58ch; }
+.meta { color: var(--ink-2); font-size: var(--t-small); }
+.logos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 32px 0 0; padding: 0; list-style: none; }
+.logos li { position: relative; aspect-ratio: 5 / 2; background: var(--ground-2); overflow: hidden; }
+.logos li.ink { background: var(--ink); }
+.logos img { position: absolute; inset: 0; margin: auto; height: 58%; width: auto; max-width: 80%; object-fit: contain; }
+.boiler { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 24px; }
+.boiler > div { background: var(--ground-2); padding: 28px; display: grid; gap: 14px 52px; align-content: start;
+  grid-template-columns: calc((100% + 8px) / 3 - 28px) minmax(0, 1fr); }
+.boiler p { margin: 0; }
+.boiler .bp { grid-column: 2; grid-row: 1 / span 2; font-size: var(--t-lead); line-height: 1.5; max-width: 62ch; }
+.boiler .copy { grid-column: 1; grid-row: 2; align-self: start; }
+.copy { justify-self: start; min-height: 44px; padding: 0 16px; background: transparent; color: var(--ink); border: 2px solid var(--ink); font: 500 15px/1 var(--f-body); cursor: pointer; transition: transform 200ms var(--ease-ui), background-color 200ms ease, color 200ms ease; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* the close and the footer are one section */
+.closing { border-top: 1px solid var(--line); }
+.close { display: grid; grid-template-rows: auto auto auto 1fr auto auto; }
+.reach { margin: 28px 0 0; }
+.reach span { display: block; color: var(--ink-2); margin-bottom: 6px; }
+.reach a { font: 500 clamp(26px, 3.6vw, 52px)/1.15 var(--f-head); letter-spacing: -.025em; overflow-wrap: anywhere; }
+.foot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-self: end; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line); }
+.foot-grid h3 { font: 500 var(--t-small)/1.4 var(--f-body); color: var(--ink-2); letter-spacing: 0; }
+.foot-grid ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; justify-items: start; }
+.legal-line { margin: 32px 0 0; color: var(--ink-2); font-size: var(--t-small); }
+
+/* placeholders, preview only (never in the published site) */
+.todo-box { border: 2px dashed #b5631a; background: #f0a0521f; color: #7a3f0c; padding: 20px 22px; font-weight: 500; margin: 20px 0 0; max-width: 62ch; }
+.todo-box strong { display: block; margin-bottom: 4px; }
+
+@media (max-width: 1023px) {
+  .nav ul { display: none; }
+  .nav nav { order: 1; }
+  .menu { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; padding: 0 14px;
+    border: 2px solid var(--ink); border-radius: 0; background: var(--ground); color: var(--ink); font: 500 15px/1 var(--f-body); cursor: pointer; }
+  .nav.open ul { display: grid; position: fixed; inset: var(--nav-h) 0 0; gap: 0; align-content: start; padding: 8px var(--gut) 24px;
+    background: var(--ground); overflow-y: auto; }
+  .nav.open ul a { display: flex; align-items: center; min-height: 64px; border-bottom: 1px solid var(--line); font: 500 24px/1 var(--f-head); letter-spacing: -.02em; background: none; }
+}
+@media (max-width: 899px), (max-height: 700px) {
+  .screen { min-height: 0; }
+}
+@media (min-width: 900px) and (max-height: 800px) {
+  .screen { padding-block: calc(var(--nav-h) + 44px) 48px; }
+  #story .prose p { line-height: 1.5; margin-top: 14px; }
+}
 @media (max-width: 899px) {
-  .below { grid-template-columns: minmax(0, 1fr); }
+  .screen { padding-block: calc(var(--nav-h) + 40px) 48px; }
+  .moment { max-height: none; }
+  .split, .below, .boiler, .boiler > div { grid-template-columns: minmax(0, 1fr); }
+  .boiler .bp, .boiler .copy { grid-column: auto; grid-row: auto; }
+  .boiler .bp { font-size: inherit; }
+  .game figure { justify-self: start; max-width: min(72vw, 360px); }
+  .tile, .photo { justify-self: start; max-width: min(100%, 360px); }
+  .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 560px) and (max-width: 899px) {
+  .head { grid-template-columns: minmax(0, 1fr); }
+  .mark { order: -1; height: min(30vw, 300px); margin-bottom: 24px; }
 }
 @media (max-width: 559px) {
+  .brand span { display: none; }
+  .shero .kicker { display: none; }
+  .facts { grid-template-columns: 1fr 1fr; padding: 20px; gap: 14px 16px; }
+  .facts div:nth-child(n+3) { grid-column: 1 / -1; }
+  .facts dd { font-size: 16px; }
+  .evo li { width: clamp(96px, 30vw, 128px); }
   .head { grid-template-columns: minmax(0, 1fr); }
   .mark { order: -1; height: 120px; margin-bottom: 12px; }
-  .game { padding: 20px; gap: 4px 14px; }
-  .game img { width: 44px; height: 44px; }
-  .game .btn { grid-column: 1 / -1; width: 100%; justify-content: center; }
+  .logos { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .logos li:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  .actions .btn { width: 100%; }
+  .foot-grid { grid-template-columns: minmax(0, 1fr); }
 }
-@media (prefers-reduced-motion: no-preference) {
-  .bar, h1 > span, .mark, .statement, .about, .side, .foot { animation: rise .8s var(--ease) both; }
-  h1 > span + span { animation-delay: .07s; } .mark { animation-delay: .12s; } .statement { animation-delay: .2s; }
-  .about { animation-delay: .26s; } .side { animation-delay: .32s; } .foot { animation-delay: .4s; }
-  @keyframes rise { from { opacity: 0; transform: translateY(22px); } }
+@media (max-width: 379px) {
+  .nav .wrap { gap: 10px; }
+  .nav .btn.small { padding: 0 12px; font-size: 14px; }
 }
-@media (prefers-reduced-motion: reduce) { .lamp { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .lamp { animation: none; }
+  .btn, .copy { transition: none; }
+}
 
 .doc main { max-width: 68ch; padding-block: 24px 64px; }
 .doc h1 { font: 500 clamp(36px, 5vw, 56px)/1 var(--f-head); letter-spacing: -.03em; margin: 28px 0 8px; max-width: none; }
@@ -126,6 +275,19 @@ h1 > span { display: block; }
 .doc .en { color: var(--ink-2); font-size: var(--t-small); }
 .todo { color: #b5631a; background: #f0a05233; padding: 0 4px; font-weight: 600; }
 .doc .bar { justify-content: flex-start; }
+
+body:has(> .page) { padding-top: 0; }
+.page { min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; max-width: calc(1280px + 2 * var(--gut)); margin-inline: auto;
+  padding-left: max(var(--gut), env(safe-area-inset-left, 0px)); padding-right: max(var(--gut), env(safe-area-inset-right, 0px)); }
+.page .bar { display: flex; align-items: center; gap: 16px; padding-block: 22px; }
+.page .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 24px 28px; color: var(--ink-2); font-size: var(--t-small); }
+.page .foot p { margin: 0; }
+.page .lang { font-size: 16px; }
+.page .brand { margin-right: 0; }
+.nf h1 { margin: 0 0 20px; font: 500 var(--t-h2)/1.06 var(--f-head); letter-spacing: -.03em; }
+.nf strong { font-weight: 500; }
+.doc h2 { font-weight: 500; }
+.doc .en { font-size: 16px; }
 
 </style>
 </head>
@@ -151,7 +313,7 @@ h1 > span { display: block; }
     
     <p>Comme tout hébergeur, GitHub peut garder l’adresse IP des visiteurs dans ses journaux techniques, pour la sécurité du service : voir la <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">déclaration de confidentialité de GitHub</a>.</p>
     <h2>Propriété intellectuelle</h2>
-    <p>Xsections™ et Ivoria Interactive™ sont des marques verbales déposées à l’INPI par Jessy Biemy : Xsections™ le 6 novembre 2026 sous le n° 5317884 (classes 9 et 41), Ivoria Interactive™ le 7 novembre 2026 sous le n° 5317886 (classes 9, 41 et 42). Les textes et les logos du site appartiennent aussi à Jessy Biemy. Toute reproduction sans accord écrit est interdite. Polices Lexend et Figtree sous licence SIL Open Font License 1.1 (<a href="/fonts/LICENSE.txt">texte de la licence</a>).</p>
+    <p>Xsections™ et Ivoria Interactive™ sont des marques verbales déposées à l’INPI par Jessy Biemy : Xsections™ le 6 novembre 2026 sous le n° 5317884 (classes 9 et 41), Ivoria Interactive™ le 7 novembre 2026 sous le n° 5317886 (classes 9, 41 et 42). Les textes et les logos du site appartiennent aussi à Jessy Biemy. Toute reproduction sans accord écrit est interdite. Les autres marques citées appartiennent à leurs propriétaires respectifs. Polices Lexend et Figtree sous licence SIL Open Font License 1.1 (<a href="/fonts/LICENSE.txt">texte de la licence</a>).</p>
   </main>
   <footer class="foot"><p>© 2026 Ivoria Interactive™</p></footer>
 </div>
