@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#f1ede4">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Ivoria Interactive™">
+<meta property="og:site_name" content="Ivoria Interactive">
 <meta property="og:title" content="Ivoria Interactive™ · Studio de jeux vidéo indépendant">
 <meta property="og:description" content="Ivoria Interactive™ est un studio de jeux vidéo indépendant français, fondé en 2026 par Jessy Biemy. Des mondes tout doux, des systèmes très sérieux. Premier jeu : Xsections™.">
 <meta property="og:url" content="https://ivoriainteractive.com/fr/">
@@ -109,8 +109,9 @@
   --ink-2: #4a4d5a;
   --signal: #e09a10;     /* the Xsections signal lamp, the one spot of colour */
   --signal-off: #d8cdb6;
-  --night: #080d22; --night-2: #121a3b; --on-night: #eef1f8; --on-night-2: #b7bfd8;
-  --signal-n: #ffb21e; --signal-n-hi: #ffc552; --signal-n-off: #3a3324;
+  /* the Xsections band wears the game's own look: night (default) or day (<html data-xs="day">) */
+  --night: #080d22; --night-2: #121a3b; --on-night: #e9edf8; --on-night-2: #9aa4c2;
+  --signal-n: #ffb21e; --signal-n-hi: #ffc552; --signal-n-off: #3a3324; --on-signal-n: #0b1130;
   --f-head: 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --f-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --t-display: clamp(52px, 10.4vw, 168px);
@@ -125,6 +126,7 @@
   --ease: cubic-bezier(.16, 1, .3, 1);
   --ease-ui: cubic-bezier(.2, .8, .2, 1);
 }
+:root[data-xs="day"] { --night: #edf2e8; --night-2: #fdfbf6; --on-night: #1b2232; --on-night-2: #586176; --signal-n-off: #e6dfcd; }
 * { box-sizing: border-box; }
 html { background: var(--ground); -webkit-text-size-adjust: 100%; scroll-padding-top: 0; }
 body { margin: 0; padding-top: 0; background: var(--ground); color: var(--ink); font: 400 var(--t-body)/var(--lh) var(--f-body); -webkit-font-smoothing: antialiased; }
@@ -165,7 +167,7 @@ img { display: block; max-width: 100%; }
   transition: transform 200ms var(--ease-ui), background-color 200ms ease, color 200ms ease;
 }
 .btn.small { min-height: 48px; padding: 0 20px; font-size: 16px; }
-.night .btn { background: var(--signal-n); color: var(--night); }
+.night .btn { background: var(--signal-n); color: var(--on-signal-n); }
 @media (hover: hover) and (pointer: fine) {
   .ul:hover, .nav ul a:hover, .lang:hover, .foot-grid a:hover, .reach a:hover { background-size: 100% 2px; transition-duration: 140ms; }
   .tlink:hover { background-size: 100% 2px; transition-duration: 140ms; }
@@ -372,7 +374,7 @@ h3 { margin: 0; font: 500 var(--t-h3)/1.2 var(--f-head); letter-spacing: -.02em;
     <div class="wrap screen split game">
       <div class="prose">
         <h2 id="game-title">Xsections<span class="tm">™</span></h2>
-        <p class="genre">Un jeu de génie routier tout mignon, bientôt sur PC.</p>
+        <p class="genre">Un jeu d’ingénierie routière tout mignon, bientôt sur PC.</p>
         <p>Le premier jeu du studio : l’ingénierie routière pure, dans un monde tout mignon. Redessinez les carrefours et regardez un vrai trafic s’écouler.</p>
         <p class="soon"><span class="lamp" aria-hidden="true"></span>Mise en service imminente.</p>
         <div class="actions">

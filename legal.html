@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#f1ede4">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Ivoria Interactive™">
+<meta property="og:site_name" content="Ivoria Interactive">
 <meta property="og:title" content="Mentions légales · ivoriainteractive.com">
 <meta property="og:description" content="Mentions légales du site ivoriainteractive.com.">
 <meta property="og:url" content="https://ivoriainteractive.com/legal.html">
@@ -43,8 +43,9 @@
   --ink-2: #4a4d5a;
   --signal: #e09a10;     /* the Xsections signal lamp, the one spot of colour */
   --signal-off: #d8cdb6;
-  --night: #080d22; --night-2: #121a3b; --on-night: #eef1f8; --on-night-2: #b7bfd8;
-  --signal-n: #ffb21e; --signal-n-hi: #ffc552; --signal-n-off: #3a3324;
+  /* the Xsections band wears the game's own look: night (default) or day (<html data-xs="day">) */
+  --night: #080d22; --night-2: #121a3b; --on-night: #e9edf8; --on-night-2: #9aa4c2;
+  --signal-n: #ffb21e; --signal-n-hi: #ffc552; --signal-n-off: #3a3324; --on-signal-n: #0b1130;
   --f-head: 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --f-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --t-display: clamp(52px, 10.4vw, 168px);
@@ -59,6 +60,7 @@
   --ease: cubic-bezier(.16, 1, .3, 1);
   --ease-ui: cubic-bezier(.2, .8, .2, 1);
 }
+:root[data-xs="day"] { --night: #edf2e8; --night-2: #fdfbf6; --on-night: #1b2232; --on-night-2: #586176; --signal-n-off: #e6dfcd; }
 * { box-sizing: border-box; }
 html { background: var(--ground); -webkit-text-size-adjust: 100%; scroll-padding-top: 0; }
 body { margin: 0; padding-top: 0; background: var(--ground); color: var(--ink); font: 400 var(--t-body)/var(--lh) var(--f-body); -webkit-font-smoothing: antialiased; }
@@ -99,7 +101,7 @@ img { display: block; max-width: 100%; }
   transition: transform 200ms var(--ease-ui), background-color 200ms ease, color 200ms ease;
 }
 .btn.small { min-height: 48px; padding: 0 20px; font-size: 16px; }
-.night .btn { background: var(--signal-n); color: var(--night); }
+.night .btn { background: var(--signal-n); color: var(--on-signal-n); }
 @media (hover: hover) and (pointer: fine) {
   .ul:hover, .nav ul a:hover, .lang:hover, .foot-grid a:hover, .reach a:hover { background-size: 100% 2px; transition-duration: 140ms; }
   .tlink:hover { background-size: 100% 2px; transition-duration: 140ms; }
@@ -297,7 +299,7 @@ body:has(> .page) { padding-top: 0; }
     <a class="lang" href="/fr/">← ivoriainteractive.com</a>
   </header>
   <main>
-    <p class="en" lang="en">Legal notice of ivoriainteractive.com, required by French law. In short: the site is published by Jessy Biemy (sole trader, brand Ivoria Interactive™) and hosted by GitHub Pages; it sets no cookies and measures nothing. Xsections™ and Ivoria Interactive™ are trademarks filed with the French INPI.</p>
+    <p class="en" lang="en">Legal notice of ivoriainteractive.com, required by French law. In short: the site is published by Jessy Biemy (sole trader, brand Ivoria Interactive™) and hosted by GitHub Pages; it sets no cookies and measures nothing. Xsections™ and Ivoria Interactive™ are trademarks filed with INPI, the French trademark office.</p>
     <h1>Mentions légales</h1>
     <h2>Éditeur du site</h2>
     <p>Jessy Biemy, entrepreneur individuel (EI), qui publie sous la marque Ivoria Interactive™.<br>
